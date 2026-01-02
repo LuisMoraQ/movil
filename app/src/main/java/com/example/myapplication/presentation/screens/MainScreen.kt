@@ -10,10 +10,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,10 +98,17 @@ fun MainScreen(
                         )
                     }
 
-                    composable("formulario_asistencia/{proyectoId}/{proyectoNombre}") { backStackEntry ->
+                    composable(
+                        route = "formulario_asistencia/{proyectoId}/{proyectoNombre}",
+                        arguments = listOf(
+                            navArgument("proyectoId") { type = NavType.StringType },
+                            navArgument("proyectoNombre") { type = NavType.StringType }
+                        )
+                    ) { backStackEntry ->
                         val proyectoId = backStackEntry.arguments?.getString("proyectoId") ?: ""
-                        val proyectoNombre = backStackEntry.arguments?.getString("proyectoNombre") ?: "Sin nombre"
+                        val proyectoNombre = backStackEntry.arguments?.getString("proyectoNombre") ?: ""
 
+                        // Usar ViewModel aquí
                         FormularioAsistenciaScreen(
                             proyectoId = proyectoId,
                             proyectoNombre = proyectoNombre,

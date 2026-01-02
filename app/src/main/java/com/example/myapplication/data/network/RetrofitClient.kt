@@ -7,11 +7,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
-    const val BASE_URL = "http://192.168.1.38:5000/" //ipcasa
-   const val baseSlash = "192.168.1.38:5000"//ipofi
-   // const val BASE_URL = "http://192.168.18.102:5000/" //ipofi
+    //const val BASE_URL = "http://192.168.1.38:5000/" //ipcasa
+   //const val baseSlash = "192.168.1.38:5000"//ipcasa
+    const val BASE_URL = "http://192.168.18.102:5000/" //ipofi
 
-    //const val baseSlash = "192.168.18.102:5000"//ipofi
+    const val baseSlash = "192.168.18.102:5000"//ipofi
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }

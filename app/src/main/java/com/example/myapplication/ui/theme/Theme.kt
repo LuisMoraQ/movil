@@ -9,6 +9,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -56,3 +57,7 @@ fun MyApplicationTheme(
         content = content
     )
 }
+
+val BluePrimary = Color(0xFF1976D2)
+val BlueLight = Color(0xFF42A5F5)
+val BackgroundGray = Color(0xFFF5F7FA)

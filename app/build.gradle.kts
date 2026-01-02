@@ -6,14 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.myapplication"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 34  // Cambia esto
 
     defaultConfig {
         applicationId = "com.example.myapplication"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 34  // Cambia esto
         versionCode = 1
         versionName = "1.0"
 
@@ -39,6 +37,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
 }
 
 dependencies {
@@ -52,6 +53,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
 
     // PARA TU API .NET 6
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -62,9 +64,10 @@ dependencies {
     // Coroutines para llamadas asíncronas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // ViewModel para Jetpack Compose
+    // ViewModel y LiveData para Jetpack Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
 
     // Navegación entre pantallas
     implementation("androidx.navigation:navigation-compose:2.7.6")
@@ -81,8 +84,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    // Seguridad
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
-    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
+    // Códigos QR
     implementation("com.google.mlkit:barcode-scanning:17.2.0")
 
     // Para permisos en Compose
